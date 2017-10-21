@@ -4,12 +4,14 @@
 \alias{getCANSIM}
 \title{getCANSIM}
 \usage{
-getCANSIM(cansimTableNumber, showLabels = TRUE)
+getCANSIM(cansimTableNumber, showLabels = TRUE, raw = FALSE)
 }
 \arguments{
 \item{cansimTableNumber}{- the table number we wish to retrieve from CANSIM.}
 
 \item{showLabels}{- show the Statistics Canada labels after finishing extracting and converting the table, TRUE by default.}
+
+\item{raw}{- download the CANSIM table as-is, skipping all processing, FALSE by default.}
 }
 \value{
 data frame containing CANSIM table.
@@ -25,6 +27,7 @@ The generic variables keep the full Statistics Canada description by using a lab
 }
 \examples{
 getCANSIM(4010004, showLabels = FALSE)
+getCANSIM(4010004, raw = TRUE)
 getCANSIM(4010040)
 getCANSIM(1530114)
 }

@@ -10,14 +10,17 @@
 #'
 #' @param cansimTableNumber - the table number we wish to retrieve from CANSIM.
 #' @param showLabels - show the Statistics Canada labels after finishing extracting and converting the table, TRUE by default.
+#' @param raw - download the CANSIM table as-is, skipping all processing, FALSE by default.
 #' @return data frame containing CANSIM table.
 #' @examples
 #' getCANSIM(4010004, showLabels = FALSE)
+#' getCANSIM(4010004, raw = TRUE)
 #' getCANSIM(4010040)
 #' getCANSIM(1530114)
 #' @export
-getCANSIM <- function(cansimTableNumber, showLabels = TRUE){
-  df <- downloadCANSIM(cansimTableNumber)
+getCANSIM <- function(cansimTableNumber, showLabels = TRUE, raw = FALSE){
+  df <- downloadCANSIM(cansimTableNumber, raw)
+  if(raw == TRUE) return(df)
 
   df2 <- dcast(df, df[,1] + df[,2] ~ StatCanVariable, value.var = "Value") #function from reshape2 package
 

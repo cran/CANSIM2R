@@ -1,8 +1,8 @@
 Package: CANSIM2R
 Type: Package
 Title: Directly Extracts Complete CANSIM Data Tables
-Version: 0.11
-Date: 2015-09-06
+Version: 0.12
+Date: 2017-10-21
 Author: Marco Lugo <marco.lugo.rodriguez@umontreal.ca>
 Maintainer: Marco Lugo <marco.lugo.rodriguez@umontreal.ca>
 Depends: R (>= 3.2.2)
@@ -11,6 +11,6 @@ Description: Extract CANSIM (Statistics Canada) tables and transform them into r
 License: GPL-3
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2015-09-06 23:32:36 UTC; marco
+Packaged: 2017-10-21 22:11:15 UTC; ML
 Repository: CRAN
-Date/Publication: 2015-09-07 08:45:57
+Date/Publication: 2017-10-21 22:20:17 UTC
