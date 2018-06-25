@@ -20,6 +20,5 @@ data frame containing CANSIM tables.
 Extracts more than one CANSIM table and produces a merged table (by ID and period).
 }
 \examples{
-mergeCANSIM( c(2020501, 3260021) )
+mergeCANSIM( c(23100067, 23100238) )
 }
-

@@ -13,16 +13,21 @@
 #' @param raw - download the CANSIM table as-is, skipping all processing, FALSE by default.
 #' @return data frame containing CANSIM table.
 #' @examples
-#' getCANSIM(4010004, showLabels = FALSE)
-#' getCANSIM(4010004, raw = TRUE)
-#' getCANSIM(4010040)
-#' getCANSIM(1530114)
+#' getCANSIM("23-10-0238", showLabels = FALSE)
+#' getCANSIM("23-10-0238", raw = TRUE)
+#' getCANSIM("23100238")
 #' @export
 getCANSIM <- function(cansimTableNumber, showLabels = TRUE, raw = FALSE){
   df <- downloadCANSIM(cansimTableNumber, raw)
+  # temporary fix, several local and remote tests confirm that download works but CRAN server fails to connect
+  # to StatCan website. This fix needs to be reviewed shortly
+  if(typeof(df) == 'logical'){
+    print("Please check that you can connect to the Statistics Canada website. (e.g. https://www150.statcan.gc.ca/n1/tbl/csv/23100238-eng.zip) and or that the table number is valid (please only use the first 8 digits) and try again. ")
+    return(NULL)
+  }
   if(raw == TRUE) return(df)
 
-  df2 <- dcast(df, df[,1] + df[,2] ~ StatCanVariable, value.var = "Value") #function from reshape2 package
+  df2 <- dcast(df, df[,1] + df[,2] ~ StatCanVariable, value.var = "VALUE") #function from reshape2 package
 
   df2 <- df2[order(df2[,2]),]
   colnames(df2)[1] <- "t"

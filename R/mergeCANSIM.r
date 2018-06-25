@@ -14,10 +14,21 @@
 mergeCANSIM <- function(cansimTableVector, keepUnmatched = FALSE, showLabels = TRUE){
 
   df <- getCANSIM(cansimTableVector[1], showLabels = FALSE)
+  
+  if(typeof(df) == 'NULL'){
+    print("Please check that you can connect to the Statistics Canada website. (e.g. https://www150.statcan.gc.ca/n1/tbl/csv/23100238-eng.zip) and or that the table number is valid (please only use the first 8 digits) and try again. ")
+    return(NULL)
+  }
 
   if( length(cansimTableVector) > 1){
     for(i in 2:length(cansimTableVector) ){
       df2 <- getCANSIM(cansimTableVector[i], showLabels = FALSE)
+      
+      if(typeof(df2) == 'NULL'){
+        print("Please check that you can connect to the Statistics Canada website. (e.g. https://www150.statcan.gc.ca/n1/tbl/csv/23100238-eng.zip) and or that the table number is valid (please only use the first 8 digits) and try again. ")
+        return(NULL)
+      }
+      
       df2 <- renameSecondCANSIM(df2, ncol(df))
 
       df <- merge(df, df2, by = c("t", "i"), all = keepUnmatched )
