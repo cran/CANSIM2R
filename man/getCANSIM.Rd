@@ -4,7 +4,7 @@
 \alias{getCANSIM}
 \title{getCANSIM}
 \usage{
-getCANSIM(cansimTableNumber, showLabels = TRUE, raw = FALSE)
+getCANSIM(cansimTableNumber='', showLabels = TRUE, raw = FALSE)
 }
 \arguments{
 \item{cansimTableNumber}{- the table number we wish to retrieve from CANSIM.}
@@ -26,7 +26,5 @@ and all the other variables are renamed with a generic V1, V2, ..., Vn.
 The generic variables keep the full Statistics Canada description by using a label.
 }
 \examples{
-getCANSIM("23-10-0238", showLabels = FALSE)
-getCANSIM("23-10-0238", raw = TRUE)
-getCANSIM("23100238")
+getCANSIM("23-10-0238")
 }
