@@ -11,9 +11,9 @@
 #' @examples
 #' mergeCANSIM( c(2020501, 3260021) )
 #' @export
-mergeCANSIM <- function(cansimTableVector, keepUnmatched = FALSE, showLabels = TRUE){
+mergeCANSIM <- function(cansimTableVector, keepUnmatched = FALSE, showLabels = TRUE, lang = 'eng'){
 
-  df <- getCANSIM(cansimTableVector[1], showLabels = FALSE)
+  df <- getCANSIM(cansimTableVector[1], showLabels = FALSE, lang = lang)
   
   if(typeof(df) == 'NULL'){
     print("Please check that you can connect to the Statistics Canada website. (e.g. https://www150.statcan.gc.ca/n1/tbl/csv/23100238-eng.zip) and or that the table number is valid (please only use the first 8 digits) and try again. ")

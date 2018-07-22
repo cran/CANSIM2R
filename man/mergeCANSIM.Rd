@@ -4,7 +4,7 @@
 \alias{mergeCANSIM}
 \title{mergeCANSIM}
 \usage{
-mergeCANSIM(cansimTableVector, keepUnmatched = FALSE, showLabels = TRUE)
+mergeCANSIM(cansimTableVector, keepUnmatched = FALSE, showLabels = TRUE, lang = 'eng')
 }
 \arguments{
 \item{cansimTableVector}{- vector containing all the CANSIM tables to extract and merge.}
@@ -12,6 +12,8 @@ mergeCANSIM(cansimTableVector, keepUnmatched = FALSE, showLabels = TRUE)
 \item{keepUnmatched}{- if true, keeps all values, even if no match was found. FALSE by default.}
 
 \item{showLabels}{- show the Statistics Canada labels after finishing extracting and converting the table, TRUE by default.}
+
+\item{lang}{- language for data labels ('eng' for English or 'fra' for French), 'eng' by default.}
 }
 \value{
 data frame containing CANSIM tables.

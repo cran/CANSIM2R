@@ -1,5 +1,7 @@
 createStatCanVariables <- function(df){
-  VectorPosition <- match("VECTOR",names(df))
+  VectorPosition <- match(c("VECTOR", "VECTEUR"), table = names(df))
+  indexPosition <- which(!is.na(VectorPosition)) # locate the first non-NA (i.e. where VECTOR|VECTEUR was found)
+  VectorPosition <- VectorPosition[indexPosition]
 
   #Only create new variable if there is more than one column from StatCan
   #Concatenates variables names accross column to create a single column (name)
