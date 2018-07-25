@@ -32,7 +32,7 @@ downloadCANSIM <- function(cansimTableNumber, raw = FALSE, lang){
   
   if(is.na(temp_filesize) || temp_filesize == 0) return(NA) # file is non-existent, exit prematurely
   
-  data <- read.csv(unz(temp, csv_filename), stringsAsFactors = FALSE, sep = separator)
+  data <- read.csv(unz(temp, csv_filename), stringsAsFactors = FALSE, sep = separator, encoding = "UTF-8")
   unlink(temp)
   if(raw == TRUE) return(data) #if raw equals TRUE, then the raw download is returned; functionality suggested by Soheil Mahmoodzadeh
 
