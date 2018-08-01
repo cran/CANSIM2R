@@ -2,6 +2,7 @@
 
 export(getCANSIM)
 export(mergeCANSIM)
+export(searchLabels)
 import(Hmisc)
 import(reshape2)
 import(utils)
